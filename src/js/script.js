@@ -4,9 +4,11 @@ window.addEventListener('DOMContentLoaded', function () {
 
     let slider = require('./modules/slider.js'),
         timer = require('./modules/timer.js'),
-        modal = require('./modules/modal.js');
+        modal = require('./modules/modal.js'),
+        cards = require('./modules/cards.js');
 
     slider();
     timer();
     modal();
+    cards();
 });
