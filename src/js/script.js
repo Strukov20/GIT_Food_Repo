@@ -7,8 +7,11 @@ window.addEventListener('DOMContentLoaded', function () {
         modal = require('./modules/modal.js'),
         cards = require('./modules/cards.js');
 
-    slider();
-    timer();
-    modal();
-    cards();
+
+
+        slider();
+        timer();
+        modal();
+        cards();
+
 });
