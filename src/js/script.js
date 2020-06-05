@@ -5,7 +5,8 @@ window.addEventListener('DOMContentLoaded', function () {
     let slider = require('./modules/slider.js'),
         timer = require('./modules/timer.js'),
         modal = require('./modules/modal.js'),
-        cards = require('./modules/cards.js');
+        cards = require('./modules/cards.js'),
+        forms = require('./modules/forms.js');
 
 
 
@@ -13,5 +14,6 @@ window.addEventListener('DOMContentLoaded', function () {
         timer();
         modal();
         cards();
+        forms();
 
 });

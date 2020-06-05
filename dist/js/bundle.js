@@ -171,6 +171,74 @@ module.exports = cards;
 
 /***/ }),
 
+/***/ "./src/js/modules/forms.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/forms.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function forms () {
+
+    const forms = document.querySelectorAll('form');
+
+    const message = {
+        loading: 'Загрузка',
+        success: 'Спасибо! Скоро мы с вами свяжемся!',
+        failure: 'Что-то пошло не так...'
+    };
+
+    forms.forEach(item => {
+        postData(item);
+    });
+
+
+    function postData(form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const statusMessage = document.createElement('div');
+            statusMessage.classList.add('status');
+            statusMessage.textContent = message.loading;
+            form.append(statusMessage);
+
+            const request = new XMLHttpRequest();
+            request.open('POST', 'server.php');
+
+            // request.setRequestHeader('Content-type', 'multipart/form-data');
+            request.setRequestHeader('Content-type', 'application/json');
+            const formData = new FormData(form);
+
+            const object = {};
+
+            formData.forEach(function(value, key){
+                object[key] = value;
+            });
+
+            const json = JSON.stringify(object);
+
+            request.send(json);
+
+            request.addEventListener('load', () => {
+                if (request.status === 200) {
+                    console.log(request.response);
+                    statusMessage.textContent = message.success;
+                    form.reset();
+                    setTimeout(() => {
+                        statusMessage.remove();
+                    }, 2000);
+                } else {
+                    statusMessage.textContent = message.failure;
+                }
+            });
+        });
+    }
+}
+
+module.exports = forms;
+
+/***/ }),
+
 /***/ "./src/js/modules/modal.js":
 /*!*********************************!*\
   !*** ./src/js/modules/modal.js ***!
@@ -371,7 +439,8 @@ window.addEventListener('DOMContentLoaded', function () {
     let slider = __webpack_require__(/*! ./modules/slider.js */ "./src/js/modules/slider.js"),
         timer = __webpack_require__(/*! ./modules/timer.js */ "./src/js/modules/timer.js"),
         modal = __webpack_require__(/*! ./modules/modal.js */ "./src/js/modules/modal.js"),
-        cards = __webpack_require__(/*! ./modules/cards.js */ "./src/js/modules/cards.js");
+        cards = __webpack_require__(/*! ./modules/cards.js */ "./src/js/modules/cards.js"),
+        forms = __webpack_require__(/*! ./modules/forms.js */ "./src/js/modules/forms.js");
 
 
 
@@ -379,6 +448,7 @@ window.addEventListener('DOMContentLoaded', function () {
         timer();
         modal();
         cards();
+        forms();
 
 });
 
