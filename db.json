@@ -23,6 +23,20 @@
     }
   ],
   "requests": [
-      
+    {
+      "name": "District_1",
+      "phone": "380979748474",
+      "id": 1
+    },
+    {
+      "name": "Bohdan Strukov",
+      "phone": "+380-97-97-48-474",
+      "id": 2
+    },
+    {
+      "name": "Bohdan Strukov",
+      "phone": "+(380) - 97 - 97 - 48 - 474",
+      "id": 3
+    }
   ]
 }
