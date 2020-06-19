@@ -7,8 +7,8 @@ window.addEventListener('DOMContentLoaded', function () {
         modal = require('./modules/modal.js'),
         cards = require('./modules/cards.js'),
         forms = require('./modules/forms.js'),
-        api = require('./modules/api.js');
-
+        api = require('./modules/api.js'),
+        secondSlider = require('./modules/secondSlider.js');
 
 
         slider();
@@ -17,5 +17,5 @@ window.addEventListener('DOMContentLoaded', function () {
         cards();
         forms();
         // api();
-
+        secondSlider();
 });

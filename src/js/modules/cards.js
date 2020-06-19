@@ -49,7 +49,7 @@ function cards() {
 
         return res.json();
     };
-
+ 
     axios.get('http://localhost:3000/menu')
     .then(data => {
         data.data.forEach(({img, altimg, title, descr, price}) => {
