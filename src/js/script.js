@@ -8,7 +8,8 @@ window.addEventListener('DOMContentLoaded', function () {
         cards = require('./modules/cards.js'),
         forms = require('./modules/forms.js'),
         api = require('./modules/api.js'),
-        secondSlider = require('./modules/secondSlider.js');
+        secondSlider = require('./modules/secondSlider.js'),
+        calculator = require('./modules/calculator.js');
 
 
         slider();
@@ -18,4 +19,5 @@ window.addEventListener('DOMContentLoaded', function () {
         forms();
         // api();
         secondSlider();
+        calculator();
 });
